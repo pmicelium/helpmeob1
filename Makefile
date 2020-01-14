@@ -85,8 +85,6 @@ fclean: rm_obj
 	@rm -rf $(NAME)
 	@echo "❌\t\033[031m$(DIR_NAME)'s executable removed\033[0m"
 	@make -C $(LIBFT_DIR) fclean
-	@make -C $(LIBPT_DIR) fclean
-	@make -C $(LIBMYGTK_DIR) fclean
 
 re: fclean all
 

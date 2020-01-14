@@ -2,7 +2,8 @@
 #include <time.h>
 #define SIZE_FROG 4444
 #define SIZE_PIKA 3838
-#define NB_GIF 2
+#define SIZE_SHOU 4747 
+#define NB_GIF 3
 
 int main (void)
 {
@@ -109,6 +110,48 @@ int main (void)
             nanosleep(&t, NULL);
             printf("%s", gif);
             printf("\033[38A"); // bring the cursot 44 lines up AKA begining of the gif 
+            nb_img++;
+        }
+    }
+         else if(r%NB_GIF == 2)
+    {
+        printf("You know what ? It's time for a little dance...\n");
+        sleep(1);
+        char gif[SIZE_PIKA];
+        int fd = open("samples/shoulder", O_RDONLY);
+        if (fd <= 0)
+            {
+                printf("wtf, the file didn't open, sorry lad\n");
+                return 1;
+            }
+
+        int nb_line = 0;
+        int j;
+        int nb_img = 0;
+
+        while(1) //do to, faire un systeme qui permet lire l'entree standard pour couper le gif avec Q par exemple...
+        {
+            nb_line = 0;
+            j = 0;
+            if (nb_img == 8)
+            {
+                nb_img = 0;
+                close(fd);
+                fd = open("samples/shoulder", O_RDONLY);
+                if (fd <= 0)
+                {
+                    printf("wtf, the file didn't open, sorry lad\n");
+                    return 1;
+                }
+                ft_bzero(gif, SIZE_SHOU);
+            }
+            read(fd, &gif, SIZE_SHOU);
+            struct timespec t;
+            t.tv_sec = 0;
+            t.tv_nsec = 125000000;
+            nanosleep(&t, NULL);
+            printf("%s", gif);
+            printf("\033[47A"); // bring the cursot 44 lines up AKA begining of the gif 
             nb_img++;
         }
     }
