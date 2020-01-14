@@ -5,12 +5,13 @@
 int main (void)
 {
     printf("You're borded to death, aren't you ?\n");
-    //sleep(3);
+    sleep(1);
     printf("Of course you are, otherwise you wouldn't lunch this program\n");
-    //sleep(3);
+    sleep(1);
     printf("I think you need a break\n");
-    //sleep(3);
+    sleep(1);
     printf("And i beleve i just got what you need...\n");
+    sleep(1);
 
     srand(time(NULL));   // Init 4 randomness
     int r = rand();     //r is random
