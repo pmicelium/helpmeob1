@@ -1,4 +1,5 @@
 #include "libft.h"
+#include <time.h>
 #define SIZE_FROG 4444
 
 int main (void)
@@ -31,8 +32,9 @@ int main (void)
         int nb_line = 0;
         int j;
         int nb_img = 0;
+        int first = 0;
 
-        while(nb_img != 21) //do to, faire un systeme qui permet lire l'entree standard pour couper le gif avec Q par exemple...
+        while(1) //do to, faire un systeme qui permet lire l'entree standard pour couper le gif avec Q par exemple...
         {
             nb_line = 0;
             j = 0;
@@ -44,9 +46,20 @@ int main (void)
                 ft_bzero(gif, SIZE_FROG);
             }
             read(fd, &gif, SIZE_FROG);
-            printf("\n--------------------------------------------------------------------------------------------------\n");
-            printf("%sX", gif);
-            printf("\n--------------------------------------------------------------------------------------------------\n");
+            struct timespec t;
+            t.tv_sec = 0;
+            t.tv_nsec = 250000000;
+            nanosleep(&t, NULL);
+            if (first==0)
+            {
+                printf("%s", gif);
+                first++;
+            }
+            else
+                printf("\r%s", gif);
+            
+    printf("\033[2J");
+
             nb_img++;
         }
 
