@@ -32,7 +32,6 @@ int main (void)
         int nb_line = 0;
         int j;
         int nb_img = 0;
-        int first = 0;
 
         while(1) //do to, faire un systeme qui permet lire l'entree standard pour couper le gif avec Q par exemple...
         {
@@ -48,17 +47,11 @@ int main (void)
             read(fd, &gif, SIZE_FROG);
             struct timespec t;
             t.tv_sec = 0;
-            t.tv_nsec = 250000000;
+            t.tv_nsec = 125000000;
             nanosleep(&t, NULL);
-            if (first==0)
-            {
-                printf("%s", gif);
-                first++;
-            }
-            else
-                printf("\r%s", gif);
-            
-    printf("\033[2J");
+            printf("%s", gif);
+            printf("\033[44A"); // bring the cursot 44 lines up AKA begining of the gif 
+            //printf("\033[2J"); //the clear the page similar to clear 
 
             nb_img++;
         }
