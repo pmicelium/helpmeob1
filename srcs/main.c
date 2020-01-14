@@ -17,7 +17,6 @@ int main (void)
 
     srand(time(NULL));   // Init 4 randomness
     int r = rand();     //r is random
-    r = 1;
     if (r%NB_GIF == 0)
     {
         printf("Here, i got you a dancing frog ! Hope you like it !\n");
