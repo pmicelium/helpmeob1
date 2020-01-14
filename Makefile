@@ -10,8 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = iwant2breakfree
-DIR_NAME = iwant2breakfree
+NAME = helpmeob1
+DIR_NAME = helpmeob1
 
 ## Color ##
 RED = \033[31m
