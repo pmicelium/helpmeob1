@@ -17,6 +17,7 @@ int main (void)
 
     srand(time(NULL));   // Init 4 randomness
     int r = rand();     //r is random
+    r = 1;
     if (r%NB_GIF == 0)
     {
         printf("Here, i got you a dancing frog ! Hope you like it !\n");
@@ -29,7 +30,11 @@ int main (void)
             yy++;
         }
         int fd = open("samples/dancing_frog", O_RDONLY);
-
+        if (fd <= 0)
+            {
+                printf("wtf, the file didn't open, sorry lad\n");
+                return 1;
+            }
         int nb_line = 0;
         int j;
         int nb_img = 0;
@@ -43,6 +48,11 @@ int main (void)
                 nb_img = 0;
                 close(fd);
                 fd = open("samples/dancing_frog", O_RDONLY);
+                if (fd <= 0)
+                {
+                    printf("wtf, the file didn't open, sorry lad\n");
+                    return 1;
+                }
                 ft_bzero(gif, SIZE_FROG);
             }
             read(fd, &gif, SIZE_FROG);
@@ -67,6 +77,11 @@ int main (void)
             yy++;
         }
         int fd = open("samples/pika", O_RDONLY);
+        if (fd <= 0)
+            {
+                printf("wtf, the file didn't open, sorry lad\n");
+                return 1;
+            }
 
         int nb_line = 0;
         int j;
@@ -81,6 +96,11 @@ int main (void)
                 nb_img = 0;
                 close(fd);
                 fd = open("samples/pika", O_RDONLY);
+                if (fd <= 0)
+                {
+                    printf("wtf, the file didn't open, sorry lad\n");
+                    return 1;
+                }
                 ft_bzero(gif, SIZE_PIKA);
             }
             read(fd, &gif, SIZE_PIKA);
