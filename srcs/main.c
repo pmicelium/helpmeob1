@@ -22,13 +22,9 @@ int main (void)
     {
         printf("Here, i got you a dancing frog ! Hope you like it !\n");
         sleep(1);
-        char gif[SIZE_FROG];
-        int yy = 0;
-        while (gif[yy])
-        {
-            gif[yy] = 0;
-            yy++;
-        }
+        char gif[SIZE_FROG + 1];
+		ft_bzero(gif, SIZE_FROG + 1);
+
         int fd = open("samples/dancing_frog", O_RDONLY);
         if (fd <= 0)
             {
@@ -39,7 +35,7 @@ int main (void)
         int j;
         int nb_img = 0;
 
-        while(1) //do to, faire un systeme qui permet lire l'entree standard pour couper le gif avec Q par exemple...
+        while(0x42) //do to, faire un systeme qui permet lire l'entree standard pour couper le gif avec Q par exemple...
         {
             nb_line = 0;
             j = 0;
@@ -53,7 +49,7 @@ int main (void)
                     printf("wtf, the file didn't open, sorry lad\n");
                     return 1;
                 }
-                ft_bzero(gif, SIZE_FROG);
+                ft_bzero(gif, SIZE_FROG + 1);
             }
             read(fd, &gif, SIZE_FROG);
             struct timespec t;
@@ -69,13 +65,8 @@ int main (void)
     {
         printf("Be a little more like Pikachu and take a deep breath\n");
         sleep(1);
-        char gif[SIZE_PIKA];
-        int yy = 0;
-        while (gif[yy])
-        {
-            gif[yy] = 0;
-            yy++;
-        }
+        char gif[SIZE_PIKA + 1];
+		ft_bzero(gif, SIZE_PIKA + 1);
         int fd = open("samples/pika", O_RDONLY);
         if (fd <= 0)
             {
@@ -87,7 +78,7 @@ int main (void)
         int j;
         int nb_img = 0;
 
-        while(1) //do to, faire un systeme qui permet lire l'entree standard pour couper le gif avec Q par exemple...
+        while(0x42) //do to, faire un systeme qui permet lire l'entree standard pour couper le gif avec Q par exemple...
         {
             nb_line = 0;
             j = 0;
@@ -101,7 +92,7 @@ int main (void)
                     printf("wtf, the file didn't open, sorry lad\n");
                     return 1;
                 }
-                ft_bzero(gif, SIZE_PIKA);
+                ft_bzero(gif, SIZE_PIKA + 1);
             }
             read(fd, &gif, SIZE_PIKA);
             struct timespec t;
@@ -113,11 +104,12 @@ int main (void)
             nb_img++;
         }
     }
-         else if(r%NB_GIF == 2)
+    else if(r%NB_GIF == 2)
     {
         printf("You know what ? It's time for a little dance...\n");
         sleep(1);
-        char gif[SIZE_PIKA];
+        char gif[SIZE_SHOU + 1];
+		ft_bzero(gif, SIZE_SHOU + 1);
         int fd = open("samples/shoulder", O_RDONLY);
         if (fd <= 0)
             {
@@ -129,7 +121,7 @@ int main (void)
         int j;
         int nb_img = 0;
 
-        while(1) //do to, faire un systeme qui permet lire l'entree standard pour couper le gif avec Q par exemple...
+        while(0x42) //do to, faire un systeme qui permet lire l'entree standard pour couper le gif avec Q par exemple...
         {
             nb_line = 0;
             j = 0;
@@ -143,7 +135,7 @@ int main (void)
                     printf("wtf, the file didn't open, sorry lad\n");
                     return 1;
                 }
-                ft_bzero(gif, SIZE_SHOU);
+                ft_bzero(gif, SIZE_SHOU + 1);
             }
             read(fd, &gif, SIZE_SHOU);
             struct timespec t;
